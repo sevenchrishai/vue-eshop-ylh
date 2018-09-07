@@ -1,21 +1,30 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <!--顶部-->
+    <mt-header fixed title="seven"></mt-header>
+    <!--中间的 路由 router-view 区域-->
+    <h1>{{msg}}</h1>
+
+    <!--底部 Tabbar 区域-->
+    <nav class="mui-bar mui-bar-tab">
+      <a class="mui-tab-item mui-active" href="#tabbar">
+        <span class="mui-icon mui-icon-home"></span>
+        <span class="mui-tab-label">首页</span>
+      </a>
+      <a class="mui-tab-item" href="#tabbar-with-chat">
+        <span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+        <span class="mui-tab-label">消息</span>
+      </a>
+      <a class="mui-tab-item" href="#tabbar-with-contact">
+        <span class="mui-icon mui-icon-contact"></span>
+        <span class="mui-tab-label">通讯录</span>
+      </a>
+      <a class="mui-tab-item" href="#tabbar-with-map">
+        <span class="mui-icon mui-icon-gear"></span>
+        <span class="mui-tab-label">设置</span>
+      </a>
+    </nav>
+
   </div>
 </template>
 
