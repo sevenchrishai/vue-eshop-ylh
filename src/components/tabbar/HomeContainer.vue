@@ -7,30 +7,41 @@
       </mt-swipe-item>
     </mt-swipe>
     <ul class="mui-table-view mui-grid-view mui-grid-9">
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-        <img src="../../assets/icon_news.png" alt="">
-        <div class="mui-media-body">新闻资讯</div></a></li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-        <img src="../../assets/icon_img.png" alt="">
-        <div class="mui-media-body">图片分享</div></a></li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+        <router-link to="/home/newslist">
+          <img src="../../assets/icon_news.png" alt="">
+          <div class="mui-media-body">新闻资讯</div>
+        </router-link>
+      </li>
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+        <router-link to="/home/photolist">
+          <img src="../../assets/icon_img.png" alt="">
+          <div class="mui-media-body">图片分享</div>
+        </router-link>
+      </li>
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+        <router-link to="/home/goodslist">
         <img src="../../assets/icon_shop.png" alt="">
-        <div class="mui-media-body">商品购买</div></a></li>
+        <div class="mui-media-body">商品购买</div>
+      </router-link></li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
         <img src="../../assets/icon_msg.png" alt="">
-        <div class="mui-media-body">留言反馈</div></a></li>
+        <div class="mui-media-body">留言反馈</div>
+      </a></li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
         <img src="../../assets/icon_video.png" alt="">
-        <div class="mui-media-body">视频专区</div></a></li>
+        <div class="mui-media-body">视频专区</div>
+      </a></li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
         <img src="../../assets/icon_contact.png" alt="">
-        <div class="mui-media-body">联系我们</div></a></li>
+        <div class="mui-media-body">联系我们</div>
+      </a></li>
     </ul>
   </div>
 </template>
 
 <script>
-  import { Toast } from 'mint-ui'
+  import {Toast} from 'mint-ui'
 
   export default {
     name: "home-container",
@@ -41,10 +52,9 @@
       }
     },
     methods: {
-      getData(){
-        const url = "https://gank.io/api/data/%E7%A6%8F%E5%88%A9/5/1";
-        this.$http.get(url).then(response => {
-          if (!response.body.error){
+      getData() {
+        this.$http.get("data/%E7%A6%8F%E5%88%A9/5/1").then(response => {
+          if (!response.body.error) {
             this.lunbolist = response.body.results
           } else {
             Toast('加载轮播图失败……')
@@ -54,7 +64,7 @@
         })
       }
     },
-    created(){
+    created() {
       this.getData();
     }
   }
@@ -79,7 +89,7 @@
       &:nth-child(5) {
         background-color: darkgray;
       }
-      img{
+      img {
         width: 100%;
         position: absolute;
         top: -30%;
@@ -87,17 +97,19 @@
       }
     }
   }
-  .mui-grid-view.mui-grid-9{
+
+  .mui-grid-view.mui-grid-9 {
     background-color: white;
     border: none;
-    img{
+    img {
       width: 64px;
     }
-    .mui-media-body{
+    .mui-media-body {
       font-size: 13px;
     }
   }
-  .mui-grid-view.mui-grid-9 .mui-table-view-cell{
+
+  .mui-grid-view.mui-grid-9 .mui-table-view-cell {
     border: none;
   }
 
