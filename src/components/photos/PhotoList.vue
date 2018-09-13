@@ -15,7 +15,7 @@
     </div>
     <!--图片列表-->
     <ul class="pic-list">
-      <router-link v-for="(item,i) in picList" :key="item._id" :to="'/home/photolist/' + id + '/' + i" tag="li">
+      <router-link v-for="(item,i) in picList" :key="item._id" :to="'/home/photoinfo/' + id + '/' + i" tag="li">
         <img v-lazy="item.cover">
         <div class="info">{{item.title}}</div>
       </router-link>

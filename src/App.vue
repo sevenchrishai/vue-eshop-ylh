@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <!--顶部-->
-    <mt-header fixed title="seven"></mt-header>
+    <mt-header fixed title="seven">
+      <a slot="left" @click.prevent="back()">
+        <mt-button icon="back"></mt-button>
+      </a>
+    </mt-header>
     <!--中间的 路由 router-view 区域-->
     <transition>
       <router-view></router-view>
@@ -18,7 +22,10 @@
         <span class="mui-tab-label">会员</span>
       </router-link>
       <router-link class="mui-tab-item-1" to="/shopcar">
-        <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">9</span></span>
+        <span class="mui-icon mui-icon-extra mui-icon-extra-cart">
+          <!--<span :class="['mui-badge', $store.state.count ===0 ? 'full' : '']">{{$store.state.count}}</span>-->
+          <span class="mui-badge" v-show="$store.getters.getAllCount !=0">{{$store.getters.getAllCount}}</span>
+        </span>
         <span class="mui-tab-label">购物车</span>
       </router-link>
       <router-link class="mui-tab-item-1" to="/search">
@@ -37,7 +44,14 @@
       return {
         msg: 'Welcome to Your Vue.js App'
       }
-    }
+    },
+    methods:{
+      back(){
+        if (this.$router.history.current.path != '/home'){
+          this.$router.go(-1)
+        }
+      }
+    },
   }
 </script>
 
@@ -45,9 +59,15 @@
   #app {
     margin: 40px 0 50px;
     overflow-x: hidden;
+    .full{
+      display: none;
+    }
   }
   .mint-header.is-fixed{
     z-index: 99;
+  }
+  .mint-header-title{
+    font-size: 18px;
   }
   ul{
     margin: 0;

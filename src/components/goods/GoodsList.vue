@@ -1,7 +1,7 @@
 <template>
   <div class="goods-list">
     <ul>
-      <li>
+      <router-link :to="'/home/goodsinfo/'+ 0" tag="li">
         <img src="https://img13.360buyimg.com/n7/jfs/t19912/33/927199229/297549/8c269ff0/5b0fca0fN8d5600df.jpg" alt="小米8">
         <h1 class="title">小米8 全面屏游戏智能手机</h1>
         <div class="info">
@@ -14,8 +14,8 @@
             <span class="no">剩60件</span>
           </p>
         </div>
-      </li>
-      <li>
+      </router-link>
+      <router-link :to="'/home/goodsinfo/'+ 1" tag="li">
         <img src="https://img14.360buyimg.com/n7/jfs/t19786/94/1948790595/190301/ad172397/5adfe50bNd5907d0b.jpg" alt="小米6">
         <h1 class="title">小米6X 全网通 4GB+64GB 赤焰红 移动联通电信4G手机 双卡双待 智能手机 拍照手机</h1>
         <div class="info">
@@ -28,8 +28,8 @@
             <span class="no">剩60件</span>
           </p>
         </div>
-      </li>
-      <li>
+      </router-link>
+      <router-link :to="'/home/goodsinfo/'+ 2" tag="li">
         <img src="https://img13.360buyimg.com/n7/jfs/t19912/33/927199229/297549/8c269ff0/5b0fca0fN8d5600df.jpg" alt="小米8">
         <h1 class="title">小米8 全面屏游戏智能手机 6GB+64GB 黑色 全网通4G 双卡双待</h1>
         <div class="info">
@@ -42,7 +42,7 @@
             <span class="no">剩60件</span>
           </p>
         </div>
-      </li>
+      </router-link>
     </ul>
 
   </div>

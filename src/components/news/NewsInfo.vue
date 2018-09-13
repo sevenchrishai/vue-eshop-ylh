@@ -68,5 +68,8 @@
     img {
       width: 100%;
     }
+    video{
+      width: 100%;
+    }
   }
 </style>

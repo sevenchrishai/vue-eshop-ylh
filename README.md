@@ -109,3 +109,21 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
  2. 绘制界面（活用flex布局）
  3. 请求数据
  4. 渲染美化布局
+ 5. 关于商品页面都是静态数据
+
+## 制作商品详情页面
+ 1. 改造商品详情路由链接（动态路由）
+ 2. 绘制界面（这里使用了 mui 现成的卡片视图组件 card）
+ 3. 将轮播图抽离出来，当作一个组件，在商品详情中引入（在轮播图组件中绑定class，使图片宽度与首页不一样--:class="{full: isfull}"）
+ 4. 购买数量的 - + 可使用 mui 的数字输入框组件 number box（同样，它是js组件，js组件需要初始化，按照文档进行初始化：mui(Selector).numbox()）
+ 5. 实现基本的加入购物车小球动画
+ 6. 安装 vuex 实现全局数据共享
+ + 商品详情页面：购买数量->加入购物车<->底部tabbar购物车数量同步
+ ```
+ npm i vuex -S
+ ----------------------
+ import Vue from 'vue'
+ import Vuex from 'vuex'
+ Vue.use(Vuex)
+ ```
+ + v-show="$store.state.count !=0" 如果购物车数量为0，设置badge不显示

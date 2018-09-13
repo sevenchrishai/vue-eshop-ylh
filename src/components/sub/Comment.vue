@@ -21,6 +21,8 @@
 
 <script>
   import { Toast } from 'mint-ui'
+  import storage from '../../model/storage'
+
   export default {
     name: "comment",
     data() {
@@ -41,6 +43,7 @@
         }
         var obj = {"_id": Math.random(), "user": "新人用户", "time": new Date(), "content": this.commentInfo}
         this.list.unshift(obj)
+        storage.set('commentList', this.list)
         this.commentInfo = ""
       },
       getMore(){
@@ -50,9 +53,16 @@
           {"_id": Math.random(), "user": "Niuniu", "time": new Date(), "content": "你是魔鬼吗？"}
         ]
         this.list = this.list.concat(l)
+        storage.set('commentList', this.list)
       }
 
     },
+    mounted(){
+      var list = storage.get('commentList');
+      if (list) {
+        this.list = list;
+      }
+    }
 
 
   }

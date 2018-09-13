@@ -69,7 +69,7 @@
         })
       },
       handleClose () {
-        console.log('close event')
+        // console.log('close event')
       }
     },
     components: {

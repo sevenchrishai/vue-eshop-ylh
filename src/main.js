@@ -47,8 +47,11 @@ Vue.use(VuePreview)
 //   tapToToggleControls: false
 // })
 
+import store from './model/store'
+
 new Vue({
   el: '#app',
   router,
+  store,  // 挂载到VM实例上，全局
   render: h => h(App)
 })
