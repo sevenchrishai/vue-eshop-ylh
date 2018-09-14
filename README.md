@@ -127,3 +127,16 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
  Vue.use(Vuex)
  ```
  + v-show="$store.state.count !=0" 如果购物车数量为0，设置badge不显示
+ 
+## 制作购物车页面
+ 1. 购物车数据都存储在 vuex 的state中的 cart 数组中（在详情页加入购物车时存储的）
+ 2. 购物车页面对数据的操作，也需要提交(commit)到 vuex中
+ 3. 在store中操作，将cart数据存储在本地localstorage中，并在页面第一次加载时，读取localstorage，更新购物车数据
+ 4. 当购物车页面页面中商品数量的加减（change事件），商品的删除以及商品的选中（change事件），都需要在 store 中操作并存储到本地
+ 5. 计算总计商品数量和总价时，在 store 中的 getters 中写方法获取
+ 6. 这部分逻辑详细见代码。
+
+## 关于Header返回
+ 1. 通过 this.$route.path 判断当前页面的路由路径，当它等于 '/home' 时，返回键隐藏
+ 2. 页面刷新进入，也要进行判断，是否需要隐藏返回键
+ 

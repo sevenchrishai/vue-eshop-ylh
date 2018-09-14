@@ -2,7 +2,7 @@
   <div id="app">
     <!--顶部-->
     <mt-header fixed title="seven">
-      <a slot="left" @click.prevent="back()">
+      <a slot="left" @click.prevent="back()" v-show="flag">
         <mt-button icon="back"></mt-button>
       </a>
     </mt-header>
@@ -42,16 +42,27 @@
     name: 'app',
     data() {
       return {
-        msg: 'Welcome to Your Vue.js App'
+        msg: 'Welcome to Your Vue.js App',
+        flag: false
       }
+    },
+    mounted(){
+      this.flag = this.$route.path == '/home'?false:true
     },
     methods:{
       back(){
-        if (this.$router.history.current.path != '/home'){
-          this.$router.go(-1)
-        }
+        this.$router.go(-1)
       }
     },
+    watch: {
+      '$route.path': function (newVal) {
+        if (newVal == '/home') {
+          this.flag = false;
+        } else {
+          this.flag = true;
+        }
+      }
+    }
   }
 </script>
 
@@ -59,9 +70,6 @@
   #app {
     margin: 40px 0 50px;
     overflow-x: hidden;
-    .full{
-      display: none;
-    }
   }
   .mint-header.is-fixed{
     z-index: 99;

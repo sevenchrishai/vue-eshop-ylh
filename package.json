@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "mint-ui": "^2.2.13",
+    "mockjs": "^1.0.1-beta3",
     "moment": "^2.22.2",
     "vue": "^2.5.11",
     "vue-preview": "^1.1.3",
